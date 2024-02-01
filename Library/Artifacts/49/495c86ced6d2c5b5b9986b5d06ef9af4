@@ -1,0 +1,561 @@
+#usda 1.0
+(
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def "MaterialX"
+{
+    def "Materials"
+    {
+        def Material "USD_InteractablePrimitive"
+        {
+            color4f inputs:_BaseColor = (0.5, 0.5, 0.5, 1)
+            asset inputs:_BaseMap = @placeholder.png@ (colorSpace = "srgb_texture")
+            asset inputs:_BumpMap = @placeholder.png@ (colorSpace = "srgb_texture")
+            float inputs:_BumpScale = 0
+            float inputs:_Metallic = 0
+            float inputs:_Smoothness = 0
+            color4f inputs:_EdgeHighlightColor = (1, 1, 1, 0)
+            float inputs:_EdgeHighlightFalloff = 1.5
+
+            token outputs:mtlx:surface.connect = </MaterialX/Materials/USD_InteractablePrimitive/realitykit_pbr.outputs:out>
+            token outputs:realitykit:vertex.connect = </MaterialX/Materials/USD_InteractablePrimitive/GeometryModifier.outputs:out>
+
+            def Shader "realitykit_pbr"
+            {
+                uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+                color3f inputs:baseColor.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFromLerpNode_ac6ea65da74344618bcc5d35ebbc1ae9ToSR_InteractablePrimitivebaseColor.outputs:out>
+                float3 inputs:normal.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_OutNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float inputs:metallic.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_Metallic>
+                color3f inputs:emissiveColor.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFromMultiplyNode_30584b08c0bb47c3861bfec173326b85ToSR_InteractablePrimitiveemissiveColor.outputs:out>
+                float inputs:ambientOcclusion = 1
+                float inputs:specular.connect = </MaterialX/Materials/USD_InteractablePrimitive/SR_InteractablePrimitive_specular_Grayscale.outputs:out>
+                float inputs:roughness.connect = </MaterialX/Materials/USD_InteractablePrimitive/SR_InteractablePrimitive_roughness_OnesComplement.outputs:out>
+                float inputs:clearcoat = 0
+                float inputs:clearcoatRoughness = 0.01
+                token outputs:out
+            }
+
+            def Shader "GeometryModifier"
+            {
+                uniform token info:id = "ND_realitykit_geometrymodifier_vertexshader"
+                token outputs:out
+            }
+
+            def Shader "CastSwizzleFromLerpNode_ac6ea65da74344618bcc5d35ebbc1ae9ToSR_InteractablePrimitivebaseColor"
+            {
+                uniform token info:id = "ND_swizzle_vector4_color3"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/LerpNode_ac6ea65da74344618bcc5d35ebbc1ae9.outputs:out>
+                string inputs:channels = "xyz"
+                color3f outputs:out
+            }
+
+            def Shader "LerpNode_ac6ea65da74344618bcc5d35ebbc1ae9"
+            {
+                uniform token info:id = "ND_mix_vector4"
+                float4 inputs:bg.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_5c68458fa65845b0bc2c1367e0635223.outputs:out>
+                float4 inputs:fg.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_9ea86a879b7446bc94d5176abcd8db2a.outputs:out>
+                float inputs:mix.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_8348354762d54f419ea22410e51fd56e.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "MultiplyNode_5c68458fa65845b0bc2c1367e0635223"
+            {
+                uniform token info:id = "ND_multiply_vector4"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_RGBANode_4bc42d6c923a46e780eb5a05296d3157.outputs:out>
+                float4 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFrom_BaseColorToMultiplyNode_5c68458fa65845b0bc2c1367e0635223in2.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_RGBANode_4bc42d6c923a46e780eb5a05296d3157"
+            {
+                uniform token info:id = "ND_RealityKitTexture2D_vector4"
+                asset inputs:file.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_TextureNode_4bc42d6c923a46e780eb5a05296d3157.outputs:out>
+                float2 inputs:texcoord.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157.outputs:out>
+                string inputs:min_filter = "linear"
+                string inputs:mag_filter = "linear"
+                string inputs:mip_filter = "nearest"
+                string inputs:u_wrap_mode = "repeat"
+                string inputs:v_wrap_mode = "repeat"
+                int inputs:max_anisotropy = 1
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_TextureNode_4bc42d6c923a46e780eb5a05296d3157"
+            {
+                uniform token info:id = "ND_dot_filename"
+                asset inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_BaseMap>
+                asset outputs:out
+            }
+
+            def Shader "NormalStrength_OutNode_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_combine3_vector3"
+                float inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_Out_in1Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_Out_in2Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float inputs:in3.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_Out_in3Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "NormalStrength_Out_in2Node_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_swizzle_vector2_float"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength___Tmp0Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                string inputs:channels = "y"
+                float outputs:out
+            }
+
+            def Shader "NormalStrength___Tmp0Node_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_multiply_vector2FA"
+                float2 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength___Tmp0_in1Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_StrengthNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "NormalStrength___Tmp0_in1Node_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_swizzle_vector3_vector2"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_InNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                string inputs:channels = "xy"
+                float2 outputs:out
+            }
+
+            def Shader "NormalStrength_InNode_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_dot_vector3"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFromSampleTexture2D_RGBANode_83b507cdb8c247119eadc8b93f161504ToNormalStrength_InNode_d4787257dd20463db9834695c8b68fcein.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "CastSwizzleFromSampleTexture2D_RGBANode_83b507cdb8c247119eadc8b93f161504ToNormalStrength_InNode_d4787257dd20463db9834695c8b68fcein"
+            {
+                uniform token info:id = "ND_swizzle_vector4_vector3"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_RGBANode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                string inputs:channels = "xyz"
+                float3 outputs:out
+            }
+
+            def Shader "SampleTexture2D_RGBANode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_ifequal_vector4"
+                float inputs:value1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_RGBA_value1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:value2 = 0
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_reconstructedNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float4 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_RGBA_value1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_ifequal_float"
+                float inputs:value1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_RGBA_value1_value1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:value2 = 1
+                float inputs:in1 = 1
+                float inputs:in2 = 0
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_RGBA_value1_value1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_swizzle_vector4_float"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                string inputs:channels = "w"
+                float outputs:out
+            }
+
+            def Shader "NormalStrength_Out_in1Node_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_swizzle_vector2_float"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength___Tmp0Node_d4787257dd20463db9834695c8b68fce.outputs:out>
+                string inputs:channels = "x"
+                float outputs:out
+            }
+
+            def Shader "CastSwizzleFromMultiplyNode_30584b08c0bb47c3861bfec173326b85ToSR_InteractablePrimitiveemissiveColor"
+            {
+                uniform token info:id = "ND_swizzle_vector4_color3"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_30584b08c0bb47c3861bfec173326b85.outputs:out>
+                string inputs:channels = "xyz"
+                color3f outputs:out
+            }
+
+            def Shader "MultiplyNode_30584b08c0bb47c3861bfec173326b85"
+            {
+                uniform token info:id = "ND_multiply_vector4"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFromMultiplyNode_8348354762d54f419ea22410e51fd56eToMultiplyNode_30584b08c0bb47c3861bfec173326b85in1.outputs:out>
+                float4 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFrom_EdgeHighlightColorToMultiplyNode_30584b08c0bb47c3861bfec173326b85in2.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "CastSwizzleFrom_EdgeHighlightColorToMultiplyNode_30584b08c0bb47c3861bfec173326b85in2"
+            {
+                uniform token info:id = "ND_swizzle_color4_vector4"
+                color4f inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_EdgeHighlightColor>
+                string inputs:channels = "rgba"
+                float4 outputs:out
+            }
+
+            def Shader "CastSwizzleFromMultiplyNode_8348354762d54f419ea22410e51fd56eToMultiplyNode_30584b08c0bb47c3861bfec173326b85in1"
+            {
+                uniform token info:id = "ND_swizzle_float_vector4"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_8348354762d54f419ea22410e51fd56e.outputs:out>
+                string inputs:channels = "xxxx"
+                float4 outputs:out
+            }
+
+            def Shader "SR_InteractablePrimitive_specular_Grayscale"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1 = (0.299, 0.587, 0.114)
+                float3 inputs:in2 = (0.2140411, 0.2140411, 0.2140411)
+                float outputs:out
+            }
+
+            def Shader "SR_InteractablePrimitive_roughness_OnesComplement"
+            {
+                uniform token info:id = "ND_subtract_float"
+                float inputs:in1 = 1
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_Smoothness>
+                float outputs:out
+            }
+
+            def Shader "MultiplyNode_9ea86a879b7446bc94d5176abcd8db2a"
+            {
+                uniform token info:id = "ND_multiply_vector4"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/MultiplyNode_5c68458fa65845b0bc2c1367e0635223.outputs:out>
+                float4 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFrom_EdgeHighlightColorToMultiplyNode_9ea86a879b7446bc94d5176abcd8db2ain2.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "CastSwizzleFrom_EdgeHighlightColorToMultiplyNode_9ea86a879b7446bc94d5176abcd8db2ain2"
+            {
+                uniform token info:id = "ND_swizzle_color4_vector4"
+                color4f inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_EdgeHighlightColor>
+                string inputs:channels = "rgba"
+                float4 outputs:out
+            }
+
+            def Shader "MultiplyNode_8348354762d54f419ea22410e51fd56e"
+            {
+                uniform token info:id = "ND_multiply_float"
+                float inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_OutNode_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/SplitNode_32fe5792eb8c4143beb286af6d8f0a72A.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "SplitNode_32fe5792eb8c4143beb286af6d8f0a72A"
+            {
+                uniform token info:id = "ND_extract_vector4"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SplitNode_32fe5792eb8c4143beb286af6d8f0a72.outputs:out>
+                int inputs:index = 3
+                float outputs:out
+            }
+
+            def Shader "SplitNode_32fe5792eb8c4143beb286af6d8f0a72"
+            {
+                uniform token info:id = "ND_dot_vector4"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/CastSwizzleFrom_EdgeHighlightColorToSplitNode_32fe5792eb8c4143beb286af6d8f0a72in.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "CastSwizzleFrom_EdgeHighlightColorToSplitNode_32fe5792eb8c4143beb286af6d8f0a72in"
+            {
+                uniform token info:id = "ND_swizzle_color4_vector4"
+                color4f inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_EdgeHighlightColor>
+                string inputs:channels = "rgba"
+                float4 outputs:out
+            }
+
+            def Shader "FresnelEffect_OutNode_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_power_float"
+                float inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_Out_in1Node_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_PowerNode_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "FresnelEffect_PowerNode_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_dot_float"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_EdgeHighlightFalloff>
+                float outputs:out
+            }
+
+            def Shader "FresnelEffect_Out_in1Node_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_subtract_float"
+                float inputs:in1 = 1
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_Out_in1_in2Node_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "FresnelEffect_Out_in1_in2Node_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_clamp_float"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_Out_in1_in2_inNode_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "FresnelEffect_Out_in1_in2_inNode_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_dotproduct_vector3"
+                float3 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_Out_in1_in2_in_in1Node_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float3 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_Out_in1_in2_in_in2Node_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "FresnelEffect_Out_in1_in2_in_in2Node_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_ViewDirNode_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "FresnelEffect_ViewDirNode_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_dot_vector3"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/ViewDirection_OutNode_8a9c39e824be49f3828cad6e7ce4d601.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "ViewDirection_OutNode_8a9c39e824be49f3828cad6e7ce4d601"
+            {
+                uniform token info:id = "ND_multiply_vector3"
+                float3 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/ViewDirection_Out_in1Node_8a9c39e824be49f3828cad6e7ce4d601.outputs:out>
+                float3 inputs:in2 = (1, 1, -1)
+                float3 outputs:out
+            }
+
+            def Shader "ViewDirection_Out_in1Node_8a9c39e824be49f3828cad6e7ce4d601"
+            {
+                uniform token info:id = "ND_realitykit_viewdirection_vector3"
+                string inputs:space = "world"
+                float3 outputs:out
+            }
+
+            def Shader "FresnelEffect_Out_in1_in2_in_in1Node_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_normalize_vector3"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/FresnelEffect_NormalNode_6fed0abce9fc448fbb6d8f3109387a03.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "FresnelEffect_NormalNode_6fed0abce9fc448fbb6d8f3109387a03"
+            {
+                uniform token info:id = "ND_dot_vector3"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/Normal_OutNode_a92d63c9d7e445959035a1609a33f6ad.outputs:out>
+                float3 outputs:out
+            }
+
+            def Shader "Normal_OutNode_a92d63c9d7e445959035a1609a33f6ad"
+            {
+                uniform token info:id = "ND_multiply_vector3"
+                float3 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/Normal_Out_in1Node_a92d63c9d7e445959035a1609a33f6ad.outputs:out>
+                float3 inputs:in2 = (1, 1, -1)
+                float3 outputs:out
+            }
+
+            def Shader "Normal_Out_in1Node_a92d63c9d7e445959035a1609a33f6ad"
+            {
+                uniform token info:id = "ND_normal_vector3"
+                string inputs:space = "world"
+                float3 outputs:out
+            }
+
+            def Shader "CastSwizzleFrom_BaseColorToMultiplyNode_5c68458fa65845b0bc2c1367e0635223in2"
+            {
+                uniform token info:id = "ND_swizzle_color4_vector4"
+                color4f inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_BaseColor>
+                string inputs:channels = "rgba"
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157"
+            {
+                uniform token info:id = "ND_dot_vector2"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157Add.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157Add"
+            {
+                uniform token info:id = "ND_add_vector2"
+                float2 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157Multiply.outputs:out>
+                float2 inputs:in2 = (0, 1)
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157Multiply"
+            {
+                uniform token info:id = "ND_multiply_vector2"
+                float2 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157UV.outputs:out>
+                float2 inputs:in2 = (1, -1)
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_4bc42d6c923a46e780eb5a05296d3157UV"
+            {
+                uniform token info:id = "ND_texcoord_vector2"
+                int inputs:index = 0
+                float2 outputs:out
+            }
+
+            def Shader "NormalStrength_Out_in3Node_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_mix_float"
+                float inputs:bg = 1
+                float inputs:fg.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_Out_in3_fgNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float inputs:mix.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_Out_in3_mixNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "NormalStrength_Out_in3_mixNode_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_clamp_float"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_StrengthNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "NormalStrength_Out_in3_fgNode_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_swizzle_vector3_float"
+                float3 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/NormalStrength_InNode_d4787257dd20463db9834695c8b68fce.outputs:out>
+                string inputs:channels = "z"
+                float outputs:out
+            }
+
+            def Shader "NormalStrength_StrengthNode_d4787257dd20463db9834695c8b68fce"
+            {
+                uniform token info:id = "ND_dot_float"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_BumpScale>
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_reconstructedNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_combine4_vector4"
+                float inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_reconstructed_in1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_reconstructed_in2Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:in3.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_zNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:in4 = 1
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_zNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_sqrt_float"
+                float inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_z_inNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_z_inNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_subtract_float"
+                float inputs:in1 = 1
+                float inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_z_in_in2Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_z_in_in2Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_dotproduct_vector4"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_z_in_in2_in1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float4 inputs:in2 = (0, 1, 0, 1)
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_z_in_in2_in1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_multiply_vector4"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float4 inputs:in2.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_reconstructed_in2Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_swizzle_vector4_float"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                string inputs:channels = "y"
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_reconstructed_in1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_swizzle_vector4_float"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                string inputs:channels = "w"
+                float outputs:out
+            }
+
+            def Shader "SampleTexture2D_rescaledNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_subtract_vector4FA"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaled_in1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:in2 = 1
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_rescaled_in1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_multiply_vector4FA"
+                float4 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_rescaled_in1_in1Node_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float inputs:in2 = 2
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_rescaled_in1_in1Node_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_RealityKitTexture2D_vector4"
+                asset inputs:file.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_TextureNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                float2 inputs:texcoord.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504.outputs:out>
+                string inputs:min_filter = "linear"
+                string inputs:mag_filter = "linear"
+                string inputs:mip_filter = "nearest"
+                string inputs:u_wrap_mode = "repeat"
+                string inputs:v_wrap_mode = "repeat"
+                int inputs:max_anisotropy = 1
+                float4 outputs:out
+            }
+
+            def Shader "SampleTexture2D_TextureNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_dot_filename"
+                asset inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive.inputs:_BumpMap>
+                asset outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504"
+            {
+                uniform token info:id = "ND_dot_vector2"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504Add.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504Add"
+            {
+                uniform token info:id = "ND_add_vector2"
+                float2 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504Multiply.outputs:out>
+                float2 inputs:in2 = (0, 1)
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504Multiply"
+            {
+                uniform token info:id = "ND_multiply_vector2"
+                float2 inputs:in1.connect = </MaterialX/Materials/USD_InteractablePrimitive/SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504UV.outputs:out>
+                float2 inputs:in2 = (1, -1)
+                float2 outputs:out
+            }
+
+            def Shader "SampleTexture2D_UVNode_83b507cdb8c247119eadc8b93f161504UV"
+            {
+                uniform token info:id = "ND_texcoord_vector2"
+                int inputs:index = 0
+                float2 outputs:out
+            }
+        }
+    }
+}
