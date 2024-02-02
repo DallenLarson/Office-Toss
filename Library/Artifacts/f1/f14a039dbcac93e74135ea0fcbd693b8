@@ -1,0 +1,78 @@
+<?xml version ="1.0"?>
+<materialx version = "1.38" colorspace = "lin_rec709">
+    <texcoord name = "UVNode_66c67053f8384338b90aadfed50dbdff" type = "vector2">
+        <input name = "index" type = "integer" value = "0" />
+    </texcoord>
+    <multiply name = "MultiplyNode_66c67053f8384338b90aadfed50dbdff" type = "vector2">
+        <input name = "in1" type = "vector2" value = "1,-1" />
+        <input name = "in2" type = "vector2" nodename = "UVNode_66c67053f8384338b90aadfed50dbdff" />
+    </multiply>
+    <add name = "AddNode_66c67053f8384338b90aadfed50dbdff" type = "vector2">
+        <input name = "in1" type = "vector2" value = "0,1" />
+        <input name = "in2" type = "vector2" nodename = "MultiplyNode_66c67053f8384338b90aadfed50dbdff" />
+    </add>
+    <constant name = "_Percentage" type = "float">
+        <input name = "value" type = "float" value = "0.5" />
+    </constant>
+    <dot name = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849" type = "vector4">
+        <input name = "in" type = "vector4" nodename = "CastConvertFinalFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" />
+    </dot>
+    <extract name = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849R" type = "float">
+        <input name = "in" type = "vector4" nodename = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849" />
+        <input name = "index" type = "integer" value = "0" />
+    </extract>
+    <extract name = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849G" type = "float">
+        <input name = "in" type = "vector4" nodename = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849" />
+        <input name = "index" type = "integer" value = "1" />
+    </extract>
+    <extract name = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849B" type = "float">
+        <input name = "in" type = "vector4" nodename = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849" />
+        <input name = "index" type = "integer" value = "2" />
+    </extract>
+    <extract name = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849A" type = "float">
+        <input name = "in" type = "vector4" nodename = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849" />
+        <input name = "index" type = "integer" value = "3" />
+    </extract>
+    <splitlr name = "SplitLRNode_f5c8d2d8b2e345359798718d796c06ca" type = "float">
+        <input name = "valuel" type = "float" value = "1" />
+        <input name = "valuer" type = "float" value = "0" />
+        <input name = "center" type = "float" nodename = "SubtractNode_7425bad3acab40f49a21a97b78d08630" />
+        <input name = "texcoord" type = "vector2" nodename = "CastSwizzleFromSplitNode_2a7b696f79354d29b0a3e7c4a1c36849GToSplitLRNode_f5c8d2d8b2e345359798718d796c06catexcoord" />
+    </splitlr>
+    <subtract name = "SubtractNode_7425bad3acab40f49a21a97b78d08630" type = "float">
+        <input name = "in1" type = "float" value = "1" />
+        <input name = "in2" type = "float" nodename = "_Percentage" />
+    </subtract>
+    <GeometryModification name = "SR_SliderVertex" type = "vertexshader">
+    </GeometryModification>
+    <realitykit_unlit name = "SR_Slider" type = "surfaceshader">
+        <input name = "applyPostProcessToneMap" type = "boolean" value = "false" />
+        <input name = "color" type = "color3" value = "0.1144354,0.3915726,1" />
+        <input name = "opacity" type = "float" nodename = "SplitLRNode_f5c8d2d8b2e345359798718d796c06ca" />
+    </realitykit_unlit>
+    <surfacematerial name = "USD_Slider" type = "material">
+        <input name = "vertexshader" type = "vertexshader" nodename = "SR_SliderVertex" />
+        <input name = "surfaceshader" type = "surfaceshader" nodename = "SR_Slider" />
+    </surfacematerial>
+    <dot name = "CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" type = "vector2">
+        <input name = "in" type = "vector2" nodename = "AddNode_66c67053f8384338b90aadfed50dbdff" />
+    </dot>
+    <combine4 name = "CastConvertFinalFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" type = "vector4">
+        <input name = "in1" type = "float" nodename = "CastSwizzle1FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" />
+        <input name = "in2" type = "float" nodename = "CastSwizzle2FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" />
+        <input name = "in3" type = "float" value = "0" />
+        <input name = "in4" type = "float" value = "0" />
+    </combine4>
+    <swizzle name = "CastSwizzle1FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" type = "float">
+        <input name = "in" type = "vector2" nodename = "CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" />
+        <input name = "channels" type = "string" value = "x" />
+    </swizzle>
+    <swizzle name = "CastSwizzle2FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" type = "float">
+        <input name = "in" type = "vector2" nodename = "CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in" />
+        <input name = "channels" type = "string" value = "y" />
+    </swizzle>
+    <swizzle name = "CastSwizzleFromSplitNode_2a7b696f79354d29b0a3e7c4a1c36849GToSplitLRNode_f5c8d2d8b2e345359798718d796c06catexcoord" type = "vector2">
+        <input name = "in" type = "float" nodename = "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849G" />
+        <input name = "channels" type = "string" value = "xx" />
+    </swizzle>
+</materialx>

@@ -1,0 +1,131 @@
+#usda 1.0
+(
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def "MaterialX"
+{
+    def "Materials"
+    {
+        def Material "USD_Slider"
+        {
+            float inputs:_Percentage = 0.5
+
+            token outputs:mtlx:surface.connect = </MaterialX/Materials/USD_Slider/realitykit_unlit.outputs:out>
+            token outputs:realitykit:vertex.connect = </MaterialX/Materials/USD_Slider/GeometryModifier.outputs:out>
+
+            def Shader "realitykit_unlit"
+            {
+                uniform token info:id = "ND_realitykit_unlit_surfaceshader"
+                bool inputs:applyPostProcessToneMap = 0
+                color3f inputs:color = (0.1144354, 0.3915726, 1)
+                float inputs:opacity.connect = </MaterialX/Materials/USD_Slider/SplitLRNode_f5c8d2d8b2e345359798718d796c06ca.outputs:out>
+                token outputs:out
+            }
+
+            def Shader "GeometryModifier"
+            {
+                uniform token info:id = "ND_realitykit_geometrymodifier_vertexshader"
+                token outputs:out
+            }
+
+            def Shader "SplitLRNode_f5c8d2d8b2e345359798718d796c06ca"
+            {
+                uniform token info:id = "ND_splitlr_float"
+                float inputs:valuel = 1
+                float inputs:valuer = 0
+                float inputs:center.connect = </MaterialX/Materials/USD_Slider/SubtractNode_7425bad3acab40f49a21a97b78d08630.outputs:out>
+                float2 inputs:texcoord.connect = </MaterialX/Materials/USD_Slider/CastSwizzleFromSplitNode_2a7b696f79354d29b0a3e7c4a1c36849GToSplitLRNode_f5c8d2d8b2e345359798718d796c06catexcoord.outputs:out>
+                float outputs:out
+            }
+
+            def Shader "SubtractNode_7425bad3acab40f49a21a97b78d08630"
+            {
+                uniform token info:id = "ND_subtract_float"
+                float inputs:in1 = 1
+                float inputs:in2.connect = </MaterialX/Materials/USD_Slider.inputs:_Percentage>
+                float outputs:out
+            }
+
+            def Shader "CastSwizzleFromSplitNode_2a7b696f79354d29b0a3e7c4a1c36849GToSplitLRNode_f5c8d2d8b2e345359798718d796c06catexcoord"
+            {
+                uniform token info:id = "ND_swizzle_float_vector2"
+                float inputs:in.connect = </MaterialX/Materials/USD_Slider/SplitNode_2a7b696f79354d29b0a3e7c4a1c36849G.outputs:out>
+                string inputs:channels = "xx"
+                float2 outputs:out
+            }
+
+            def Shader "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849G"
+            {
+                uniform token info:id = "ND_extract_vector4"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_Slider/SplitNode_2a7b696f79354d29b0a3e7c4a1c36849.outputs:out>
+                int inputs:index = 1
+                float outputs:out
+            }
+
+            def Shader "SplitNode_2a7b696f79354d29b0a3e7c4a1c36849"
+            {
+                uniform token info:id = "ND_dot_vector4"
+                float4 inputs:in.connect = </MaterialX/Materials/USD_Slider/CastConvertFinalFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in.outputs:out>
+                float4 outputs:out
+            }
+
+            def Shader "CastConvertFinalFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in"
+            {
+                uniform token info:id = "ND_combine4_vector4"
+                float inputs:in1.connect = </MaterialX/Materials/USD_Slider/CastSwizzle1FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in.outputs:out>
+                float inputs:in2.connect = </MaterialX/Materials/USD_Slider/CastSwizzle2FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in.outputs:out>
+                float inputs:in3 = 0
+                float inputs:in4 = 0
+                float4 outputs:out
+            }
+
+            def Shader "CastSwizzle1FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in"
+            {
+                uniform token info:id = "ND_swizzle_vector2_float"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_Slider/CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in.outputs:out>
+                string inputs:channels = "x"
+                float outputs:out
+            }
+
+            def Shader "CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in"
+            {
+                uniform token info:id = "ND_dot_vector2"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_Slider/AddNode_66c67053f8384338b90aadfed50dbdff.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "AddNode_66c67053f8384338b90aadfed50dbdff"
+            {
+                uniform token info:id = "ND_add_vector2"
+                float2 inputs:in1 = (0, 1)
+                float2 inputs:in2.connect = </MaterialX/Materials/USD_Slider/MultiplyNode_66c67053f8384338b90aadfed50dbdff.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "MultiplyNode_66c67053f8384338b90aadfed50dbdff"
+            {
+                uniform token info:id = "ND_multiply_vector2"
+                float2 inputs:in1 = (1, -1)
+                float2 inputs:in2.connect = </MaterialX/Materials/USD_Slider/UVNode_66c67053f8384338b90aadfed50dbdff.outputs:out>
+                float2 outputs:out
+            }
+
+            def Shader "UVNode_66c67053f8384338b90aadfed50dbdff"
+            {
+                uniform token info:id = "ND_texcoord_vector2"
+                int inputs:index = 0
+                float2 outputs:out
+            }
+
+            def Shader "CastSwizzle2FromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in"
+            {
+                uniform token info:id = "ND_swizzle_vector2_float"
+                float2 inputs:in.connect = </MaterialX/Materials/USD_Slider/CastConvertFromAddNode_66c67053f8384338b90aadfed50dbdffToSplitNode_2a7b696f79354d29b0a3e7c4a1c36849in.outputs:out>
+                string inputs:channels = "y"
+                float outputs:out
+            }
+        }
+    }
+}

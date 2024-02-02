@@ -1,0 +1,428 @@
+{
+  "Nodes": [
+    {
+      "Annotation": "all_tundra_nodes",
+      "DisplayName": null,
+      "Inputs": [],
+      "Outputs": [],
+      "ToBuildDependencies": [
+        1,
+        2,
+        3
+      ],
+      "OverwriteOutputs": false,
+      "DebugActionIndex": 0
+    },
+    {
+      "Annotation": "ScriptAssemblies",
+      "DisplayName": null,
+      "Inputs": [],
+      "Outputs": [],
+      "OverwriteOutputs": false,
+      "DebugActionIndex": 1
+    },
+    {
+      "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
+      "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
+      "Action": "\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/netcorerun/netcorerun\" \"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Assembly-CSharp.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/CFXRDemo.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/CFXRRuntime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/FlatSharp.Runtime.Extensions.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/KinoBloom.Runtime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/PolySpatial.Samples.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.Burst.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.Collections.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.InputSystem.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.InputSystem.TestFramework.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.Mathematics.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.PolySpatial.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.PolySpatial.RealityKit.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.PolySpatial.XR.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.TextMeshPro.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.Timeline.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.Tutorials.Core.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.ARFoundation.InternalUtils.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.ARFoundation.VisualScripting.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.CoreUtils.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.Hands.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.Interaction.Toolkit.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.Management.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.Simulation.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/Unity.XR.VisionOS.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/UnityEngine.TestRunner.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/UnityEngine.UI.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.Unsafe.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.collections@2.1.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/FlatSharp.Runtime.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/System.Runtime.CompilerServices.Unsafe.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Mdb.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Pdb.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Rocks.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.InternalAPIEngineBridge.021.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.PolySpatial.Core.dll\" -a=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll\" -s=\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Managed/UnityEngine\" -s=\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx\" -s=\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netstandard\" -s=\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/NetStandard/Extensions/2.0.0\" -s=\"/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/NetStandard/ref/2.1.0\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/ScriptAssemblies\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.collections@2.1.4/Unity.Collections.LowLevel.ILSupport\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly\" -s=\"/Users/dallen/Documents/GitHub/Office-Toss/Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Inputs": [
+        "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/netcorerun/netcorerun",
+        "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "Library/ScriptAssemblies/Assembly-CSharp.dll",
+        "Library/ScriptAssemblies/CFXRDemo.dll",
+        "Library/ScriptAssemblies/CFXRRuntime.dll",
+        "Library/ScriptAssemblies/FlatSharp.Runtime.Extensions.dll",
+        "Library/ScriptAssemblies/KinoBloom.Runtime.dll",
+        "Library/ScriptAssemblies/PolySpatial.Samples.dll",
+        "Library/ScriptAssemblies/Unity.Burst.dll",
+        "Library/ScriptAssemblies/Unity.Collections.dll",
+        "Library/ScriptAssemblies/Unity.InputSystem.dll",
+        "Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll",
+        "Library/ScriptAssemblies/Unity.InputSystem.TestFramework.dll",
+        "Library/ScriptAssemblies/Unity.Mathematics.dll",
+        "Library/ScriptAssemblies/Unity.PolySpatial.dll",
+        "Library/ScriptAssemblies/Unity.PolySpatial.RealityKit.dll",
+        "Library/ScriptAssemblies/Unity.PolySpatial.XR.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll",
+        "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll",
+        "Library/ScriptAssemblies/Unity.TextMeshPro.dll",
+        "Library/ScriptAssemblies/Unity.Timeline.dll",
+        "Library/ScriptAssemblies/Unity.Tutorials.Core.dll",
+        "Library/ScriptAssemblies/Unity.XR.ARFoundation.dll",
+        "Library/ScriptAssemblies/Unity.XR.ARFoundation.InternalUtils.dll",
+        "Library/ScriptAssemblies/Unity.XR.ARFoundation.VisualScripting.dll",
+        "Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll",
+        "Library/ScriptAssemblies/Unity.XR.CoreUtils.dll",
+        "Library/ScriptAssemblies/Unity.XR.Hands.dll",
+        "Library/ScriptAssemblies/Unity.XR.Interaction.Toolkit.dll",
+        "Library/ScriptAssemblies/Unity.XR.Management.dll",
+        "Library/ScriptAssemblies/Unity.XR.Simulation.dll",
+        "Library/ScriptAssemblies/Unity.XR.VisionOS.dll",
+        "Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll",
+        "Library/ScriptAssemblies/UnityEngine.TestRunner.dll",
+        "Library/ScriptAssemblies/UnityEngine.UI.dll",
+        "Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll",
+        "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll",
+        "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll",
+        "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll",
+        "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll",
+        "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.Unsafe.dll",
+        "Library/PackageCache/com.unity.collections@2.1.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
+        "Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/FlatSharp.Runtime.dll",
+        "Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/System.Runtime.CompilerServices.Unsafe.dll",
+        "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll",
+        "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.dll",
+        "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Mdb.dll",
+        "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Pdb.dll",
+        "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Rocks.dll",
+        "Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll",
+        "Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.InternalAPIEngineBridge.021.dll",
+        "Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.PolySpatial.Core.dll",
+        "Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll"
+      ],
+      "Outputs": [
+        "Library/BuildPlayerData/Editor/TypeDb-All.json"
+      ],
+      "AllowUnexpectedOutput": true,
+      "Env": [],
+      "DebugActionIndex": 2
+    },
+    {
+      "Annotation": "ScriptAssembliesAndTypeDB",
+      "DisplayName": null,
+      "Inputs": [],
+      "Outputs": [],
+      "ToBuildDependencies": [
+        1,
+        2
+      ],
+      "OverwriteOutputs": false,
+      "DebugActionIndex": 3
+    }
+  ],
+  "FileSignatures": [
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.BuildTools.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Core.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.CSharpSupport.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.DotNet.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.NativeProgramSupport.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Stevedore.Program.exe"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.TinyProfiler2.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Toolchain.GNU.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Toolchain.LLVM.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Toolchain.VisualStudio.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Toolchain.Xcode.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.Tools.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.TundraBackend.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Bee.VisualStudioSolution.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/BeeBuildProgramCommon.Data.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/BeeBuildProgramCommon.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Newtonsoft.Json.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/NiceIO.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/PlayerBuildProgramLibrary.Data.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/PlayerBuildProgramLibrary.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/ScriptCompilationBuildProgram.Data.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/ScriptCompilationBuildProgram.exe"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/SharpYaml.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Api.Attributes.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Cecil.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Cecil.Mdb.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Cecil.Pdb.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Cecil.Rocks.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.IL2CPP.Api.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.IL2CPP.Bee.BuildLogic.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.IL2CPP.Bee.IL2CPPExeCompileCppBuildProgram.Data.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Linker.Api.dll"
+    },
+    {
+      "File": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline/Unity.Options.dll"
+    },
+    {
+      "File": "Library/Bee/4700b0aESkipCompile-inputdata.json"
+    }
+  ],
+  "StatSignatures": [
+    {
+      "File": "/Users/dallen/Documents/GitHub/Office-Toss/getconf"
+    },
+    {
+      "File": "Assets/csc.rsp"
+    },
+    {
+      "File": "Assets/mcs.rsp"
+    },
+    {
+      "File": "Library/Bee/4700b0aESkipCompile-inputdata.json"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.burst@1.8.12/Unity.Burst.Unsafe.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.collections@2.1.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/FlatSharp.Runtime.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.ext.flatsharp@1.0.1/Runtime/System.Runtime.CompilerServices.Unsafe.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Mdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Pdb.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.Rocks.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.InternalAPIEngineBridge.021.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.polyspatial@1.0.3/Runtime/EditorAssembly/Unity.PolySpatial.Core.dll"
+    },
+    {
+      "File": "Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Assembly-CSharp.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/CFXRDemo.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/CFXRRuntime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/FlatSharp.Runtime.Extensions.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/KinoBloom.Runtime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PolySpatial.Samples.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Burst.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Collections.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.InputSystem.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.InputSystem.TestFramework.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Mathematics.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.PolySpatial.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.PolySpatial.RealityKit.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.PolySpatial.XR.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.TextMeshPro.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Timeline.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.Tutorials.Core.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.ARFoundation.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.ARFoundation.InternalUtils.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.ARFoundation.VisualScripting.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.CoreUtils.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.Hands.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.Interaction.Toolkit.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.Management.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.Simulation.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/Unity.XR.VisionOS.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/UnityEngine.TestRunner.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/UnityEngine.UI.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll"
+    }
+  ],
+  "GlobSignatures": [
+    {
+      "Path": "/Applications/Unity/Hub/Editor/2022.3.18f1/Unity.app/Contents/Tools/BuildPipeline"
+    }
+  ],
+  "ContentDigestExtensions": [
+    ".rsp",
+    ".dll",
+    ".exe",
+    ".pdb"
+  ],
+  "StructuredLogFileName": "Library/Bee/tundra.log.json",
+  "StateFileName": "Library/Bee/TundraBuildState.state",
+  "StateFileNameTmp": "Library/Bee/TundraBuildState.state.tmp",
+  "StateFileNameMapped": "Library/Bee/TundraBuildState.state.map",
+  "ScanCacheFileName": "Library/Bee/tundra.scancache",
+  "ScanCacheFileNameTmp": "Library/Bee/tundra.scancache.tmp",
+  "DigestCacheFileName": "Library/Bee/tundra.digestcache",
+  "DigestCacheFileNameTmp": "Library/Bee/tundra.digestcache.tmp",
+  "CachedNodeOutputDirectoryName": "Library/Bee/CachedNodeOutput",
+  "EmitDataForBeeWhy": 0,
+        "NamedNodes": {
+          "all_tundra_nodes": 0,
+          "ScriptAssemblies": 1,
+          "ScriptAssembliesAndTypeDB": 3
+        }
+,  "DefaultNodes": [
+    0
+  ],
+  "SharedResources": [],
+  "Scanners": [],
+  "Identifier": "Library/Bee/4700b0aESkipCompile.dag.json",
+  "PayloadsFile": "/Users/dallen/Documents/GitHub/Office-Toss/Library/Bee/4700b0aESkipCompile.dag.payloads",
+  "RelativePathToRoot": "../.."
+}
