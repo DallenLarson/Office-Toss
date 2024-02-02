@@ -2,7 +2,7 @@
 ![Alt text](https://media.discordapp.net/attachments/992282215352381440/1202749323067138068/banner.png?ex=65ce9698&is=65bc2198&hm=a26da88efc94bc17f8069b5d6528f1ab95c89690d93713083998b42632319d26&=&format=webp&quality=lossless&width=2160&height=720)
 
 ## Overview
-Office Toss is a Arcade Augmented Reality Paper Toss tech-demo developed for VisionOS using Unity's (C#) new PolySpatial tools. Toss papers into office bins, aiming for the perfect shot. This game is designed for Apple's Vision Pro, and it leverages the Unity 2022.3 LTS version.
+Office Toss is a Arcade Augmented Reality Paper Toss tech-demo developed for VisionOS using Unity's (C#) new PolySpatial tools. Toss papers into office bins, aiming for the perfect shot. This game is designed for Apple's Vision Pro, and it leverages the Unity 2022.3 LTS version. Made in 14 Hours!
 
 ## System Requirements
 - Unity 2022.3 LTS
