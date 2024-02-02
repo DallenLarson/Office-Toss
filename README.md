@@ -21,7 +21,7 @@ Open the project in Unity 2022.3 LTS.
 Ensure that your Unity Pro membership is active and logged in.
 Build and run the game on your Mac with Apple silicon.
 
-![Screenshot]((https://raw.githubusercontent.com/DallenLarson/Office-Toss/main/screenshot.png?token=GHSAT0AAAAAACNVWQF2POFNT2KQTDNHHBHYZN4NA7A))
+![Screenshot](https://raw.githubusercontent.com/DallenLarson/Office-Toss/main/screenshot.png?token=GHSAT0AAAAAACNVWQF2POFNT2KQTDNHHBHYZN4NA7A)
 
 Contact
 
