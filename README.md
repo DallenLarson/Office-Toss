@@ -1,30 +1,40 @@
-# Office Toss - Arcade Paper Toss Game for visionOS
-![Banner](https://media.discordapp.net/attachments/992282215352381440/1202749323067138068/banner.png?ex=65ce9698&is=65bc2198&hm=a26da88efc94bc17f8069b5d6528f1ab95c89690d93713083998b42632319d26&=&format=webp&quality=lossless&width=2160&height=720)
+# Office Toss
 
-## Overview
-Office Toss is a Arcade Augmented Reality Paper Toss tech-demo developed for visionOS using Unity's (C#) new PolySpatial tools. Toss papers into office bins, aiming for the perfect shot. This game is designed for Apple's Vision Pro, and it leverages the Unity 2022.3 LTS version. Made in 14 Hours!
+**An augmented-reality arcade paper-toss tech demo for Apple Vision Pro.**
 
-## System Requirements
-- Unity 2022.3 LTS
-- Mac Computer with Apple silicon OR Apple Vision Pro
-- Unity Pro Membership
-- Apple Developer Account
+Built with **Unity 2022.3 LTS, C#, and PolySpatial**, Office Toss explores bringing a familiar arcade interaction into spatial computing: toss paper into office bins and aim for the perfect shot.
 
-## Note
-- Be sure to have the editor vesion on iOS rather than Mac OS.
+![Office Toss screenshot](screenshot.png)
 
-## Installation
-1. Clone the repository to your local machine.
-   ```bash
-   git clone https://github.com/dallenlarson/office-toss.git
-Open the project in Unity 2022.3 LTS.
-Ensure that your Unity Pro membership is active and logged in.
-Build and run the game on your Mac with Apple silicon.
+## Project at a glance
 
-![Screenshot](https://cdn.discordapp.com/attachments/992282215352381440/1202832368658808873/screenshot.png?ex=65cee3f0&is=65bc6ef0&hm=5b65015d7ddc22266974c1055511352fd4bfd1cba3407b2f5edbfebe30b5b1f4&)
+| | |
+| --- | --- |
+| Platform | visionOS / Apple Vision Pro |
+| Engine | Unity 2022.3 LTS |
+| Language | C# |
+| Spatial tooling | Unity PolySpatial |
+| Scope | Tech demo |
+| Initial development | 14 hours |
 
-Contact
+## Explore the implementation
 
-For inquiries, feedback, or collaboration opportunities, please contact Dallen Larson at dallen@dallenlarson.com.
+- [Assets](Assets): gameplay source, scenes, and assets.
+- [Packages](Packages): Unity package dependencies.
+- [ProjectSettings](ProjectSettings): project configuration.
 
-Note: Developing Office Toss required significant investment, both in terms of learning and resources. While it may be costly, the experience gained and the potential impact on the gaming industry make it a worthwhile endeavor. Total Cost: $800 USD & 14 Hours of Development. Documentation is extremely limited.
+## Open the project
+
+```bash
+git clone https://github.com/DallenLarson/Office-Toss.git
+```
+
+Open the cloned project with Unity 2022.3 LTS. Review the package dependencies and platform configuration before building.
+
+The original development setup lists Apple silicon hardware, Unity Pro, and an Apple Developer account. Building and deploying for visionOS also requires the matching Apple and Unity tooling; requirements and licensing may have changed since this prototype was created.
+
+## About
+
+Created by [Dallen Larson](https://www.dallenlarson.com/) as a rapid spatial-computing prototype.
+
+[Contact](mailto:dallen@dallenlarson.com) · [License](LICENSE)
